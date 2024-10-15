@@ -6,7 +6,13 @@ const cors = require("cors")
 const morgan = require("morgan")
 const ApiError = require("./utils/ApiError")
 const ErrorHandling = require("./middlewares/ErrorHandler")
-app.use(cors())
+
+const corsOptions = {
+    origin: process.env.FRONTEND_URL,
+    credentials: true
+}
+app.use(cors(corsOptions));
+
 app.use(morgan("dev"))
 app.use(express.json({limit:'10mb'}))
 app.use(express.urlencoded({extended:false}))
