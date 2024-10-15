@@ -61,7 +61,7 @@ class AuthService {
 
         const response = await axios.post(`https://www.google.com/recaptcha/api/siteverify`, {}, {
             params: {
-                secret: process.env.CAPTCHA_SCREATE_KEY,
+                secret: process.env.CAPTCHA_SECRET_KEY,
                 response: token,
             }
         })
